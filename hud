@@ -372,7 +372,7 @@ do
     })
 
     MenuGroup:AddToggle("Watermark", {
-        Text = "Show Indicator",
+        Text = "Watermark",
         Default = true,
         Tooltip = "Shows the Watermark",
         Callback = function(Value)
