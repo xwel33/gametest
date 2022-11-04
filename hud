@@ -190,17 +190,18 @@ do
     getgenv().usedotonvelocity = false
     getgenv().dotonpart = false
     getgenv().colordot = Color3.new(255, 0, 255)
-    DotManagement:AddToggle("Enabledot", {
-        Text = "Enable",
-        Default = false,
-        Tooltip = "Predicts players velocity",
+ 
+    DotManagement:AddToggle("Dotenabled", {
+        Text = "Enabled",
+        Default = getgenv().UseDot,
+        Tooltip = "Toggle the FOV Circle on and off",
         Callback = function(Value)
             getgenv().UseDot = Value
         end
-    }):AddColorPicker("Dotcolour", {
+    }):AddColorPicker("DotColour", {
         Text = "Colour",
         Default = getgenv().colordot,
-        Tooltip = "The Color Of the Dot",
+        Tooltip = "The colour of the Dot",
         Callback = function(Value)
             getgenv().colordot = Value
         end
