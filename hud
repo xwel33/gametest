@@ -26,6 +26,8 @@ local Window = Library:CreateWindow({
 
 Library:SetWatermarkVisibility(true)
 
+AimingSettings.Ignored.IgnoreLocalTeam = false
+
 -- Sets the watermark text
 Library:SetWatermark('Sanky Box ♠ | v2.19 | '..game.Players.LocalPlayer.Name)
 
