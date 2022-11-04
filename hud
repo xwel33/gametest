@@ -189,7 +189,7 @@ do
     getgenv().UseDot = false
     getgenv().usedotonvelocity = false
     getgenv().dotonpart = false
-    getgenv().colordot = Color3.new(255, 0, 255)
+    getgenv().colordot = Color3fromRGB(231, 84, 128)
  
     DotManagement:AddToggle("Dotenabled", {
         Text = "Enabled",
