@@ -184,6 +184,81 @@ do
     local DrawingManagementBox = AimingTab:AddLeftTabbox()
     local FOVManagement = DrawingManagementBox:AddTab("FOV")
     local TracerManagement = DrawingManagementBox:AddTab("Tracer")
+    local DotManagement = DrawingManagementBox:AddTab("Dot")
+    
+    getgenv().usedotonvelocity = false
+    getgenv().colordot = Color3.fromRGB(231, 84, 128)
+ 
+    local PredictorColoxr = Color3.new(255, 255, 255)
+    local PredictorPart = Instance.new("Part",game.Workspace)
+    local newBillboardx = Instance.new("BillboardGui", PredictorPart)
+    local newFramex = Instance.new("Frame", newBillboardx)
+    local newUiCornorx = Instance.new("UICorner", newFramex)
+
+    local LocalPlayer = game.Players.LocalPlayer
+
+    task.spawn(function ()
+        PredictorPart.Anchored = true
+        PredictorPart.CanCollide = false
+        PredictorPart.CFrame = CFrame.new(0,9999,0)
+        PredictorPart.Transparency = 1
+        newBillboardx.Name = "Predictor"
+        newBillboardx.Adornee = PredictorPart
+        newBillboardx.Size = UDim2.new(0.7, 0, 0.7, 0)
+        newBillboardx.AlwaysOnTop = true
+        newFramex.Size = UDim2.new(1, 0, 1, 0)
+        newFramex.BackgroundTransparency = 0
+        newUiCornorx.CornerRadius = UDim.new(50, 50)
+    end)
+ 
+    DotManagement:AddToggle("Dotenabled", {
+        Text = "Enabled",
+        Default = false,
+        Tooltip = "Toggle the FOV Circle on and off",
+        Callback = function(Value)
+            if Value then
+                PredictorHook = game:GetService("RunService").Heartbeat:Connect(function ()
+                    if getgenv().usedotonvelocity == true then
+                        if AimingSelected.Part then
+                            PredictorPart.CFrame = CFrame.new(AimingSelected.Part.Position+(AimingSelected.Part.Velocity*0.143))
+                        else
+                            PredictorPart.CFrame = CFrame.new(999,999,999)
+                        end
+                    else
+                        if AimingSelected.Part then
+                            PredictorPart.CFrame = CFrame.new(AimingSelected.Part.Position)
+                        else
+                            PredictorPart.CFrame = CFrame.new(999,999,999)
+                        end
+                    end
+                    spawn(function ()
+                        newFramex.BackgroundColor3 = getgenv().colordot
+                    end)
+                end)
+            else
+                if PredictorHook then
+                    PredictorHook:Disconnect()
+                end
+                PredictorPart.CFrame = CFrame.new(999,999,999)
+            end
+        end
+    }):AddColorPicker("DotColour", {
+        Text = "Colour",
+        Default = getgenv().colordot,
+        Tooltip = "The colour of the Dot",
+        Callback = function(Value)
+            getgenv().colordot = Value
+        end
+    })
+    
+    DotManagement:AddToggle("Usedotvel", {
+        Text = "Velocity",
+        Default = false,
+        Tooltip = "Predicts players velocity",
+        Callback = function(Value)
+            getgenv().usedotonvelocity = Value
+        end
+    })
 
     -- //
     FOVManagement:AddToggle("AimingFOVEnabled", {
