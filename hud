@@ -184,6 +184,37 @@ do
     local DrawingManagementBox = AimingTab:AddLeftTabbox()
     local FOVManagement = DrawingManagementBox:AddTab("FOV Settings")
     local TracerManagement = DrawingManagementBox:AddTab("Tracer Settings")
+    local DotManagement = DrawingManagementBox:AddTab("Dot")
+    
+    local UseDot = false
+    local usedotonvelocity = false
+    local dotonpart = false
+    DotManagement:AddToggle("Enabledot", {
+        Text = "Enable",
+        Default = false,
+        Tooltip = "Predicts players velocity",
+        Callback = function(Value)
+            UseDot = Value
+        end
+    })
+    
+    DotManagement:AddToggle("Usedotvel", {
+        Text = "Velocity",
+        Default = false,
+        Tooltip = "Predicts players velocity",
+        Callback = function(Value)
+            usedotonvelocity = Value
+        end
+    })
+    
+    DotManagement:AddToggle("usesonhitbox", {
+        Text = "Use Dot On Part",
+        Default = false,
+        Tooltip = "Predicts players velocity",
+        Callback = function(Value)
+            dotonpart = Value
+        end
+    })
 
     -- //
     FOVManagement:AddToggle("AimingFOVEnabled", {
