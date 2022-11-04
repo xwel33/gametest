@@ -19,7 +19,7 @@ local Teams = game:GetService("Teams")
 
 -- // Initialising the UI
 local Window = Library:CreateWindow({
-    Title = "epic hax",
+    Title = "Sanky Box",
     Center = true,
     AutoShow = true
 })
