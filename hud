@@ -254,7 +254,7 @@ do
     DotManagement:AddToggle("Usedotvel", {
         Text = "Velocity",
         Default = false,
-        Tooltip = "Predicts players velocity",
+        Tooltip = "Places dots on players velocity",
         Callback = function(Value)
             getgenv().usedotonvelocity = Value
         end
