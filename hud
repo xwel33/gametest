@@ -342,7 +342,7 @@ end
 local UISettingsTab = Window:AddTab("UI Settings")
 UISettingsTab:SetLayoutOrder(69420) -- // so it sticks to the end
 do
-    local MenuGroup = UISettingsTab:AddLeftGroupbox("Menu Settings")
+    local MenuGroup = UISettingsTab:AddRightGroupbox("Menu Settings")
 
     MenuGroup:AddButton("Unload", function()
         Library:Unload()
@@ -352,6 +352,24 @@ do
         Default = "End",
         NoUI = true,
         Text = "Menu keybind"
+    })
+    
+    MenuGroup:AddToggle("keyindicator", {
+        Text = "Keybind Indicator",
+        Default = true,
+        Tooltip = "Shows Keybind Indicator",
+        Callback = function(Value)
+            Library.KeybindFrame.Visible = Value
+        end
+    })
+
+    MenuGroup:AddToggle("Watermark", {
+        Text = "Show Indicator",
+        Default = true,
+        Tooltip = "Shows the Watermark",
+        Callback = function(Value)
+            Library:SetWatermarkVisibility(Value)
+        end
     })
 
     Library.ToggleKeybind = Options.MenuKeybind
