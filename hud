@@ -67,6 +67,14 @@ do
         Callback = function(Value)
             AimingSettings.Enabled = Value
         end
+    }):AddKeyPicker("SilentAimKey", {
+        Default = true,
+        SyncToggleState = false,
+        Text = "Silent Aim Keybind",
+        NoUI = false,
+        ChangedCallback = function(Key)
+            AimingSettings.Enabled = Key
+        end
     })
     UniversalGroupBox:AddToggle("AimingVisibleCheck", {
         Text = "Visibility Check",
