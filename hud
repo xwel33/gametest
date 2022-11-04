@@ -182,8 +182,8 @@ do
 
     -- //
     local DrawingManagementBox = AimingTab:AddLeftTabbox()
-    local FOVManagement = DrawingManagementBox:AddTab("FOV Settings")
-    local TracerManagement = DrawingManagementBox:AddTab("Tracer Settings")
+    local FOVManagement = DrawingManagementBox:AddTab("FOV")
+    local TracerManagement = DrawingManagementBox:AddTab("Tracer")
     local DotManagement = DrawingManagementBox:AddTab("Dot")
     
     local UseDot = false
