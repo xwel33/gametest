@@ -220,13 +220,13 @@ do
                 PredictorHook = game:GetService("RunService").Heartbeat:Connect(function ()
                     if getgenv().usedotonvelocity == true then
                         if AimingSelected.Part then
-                            PredictorPart.CFrame = CFrame.new(AimingSelected.Part.Position+(AimingSelected.Part.Velocity*0.143))
+                            PredictorPart.CFrame = CFrame.new(Aiming.Selected.Part.Position+(Aiming.Selected.Part.Velocity*0.143))
                         else
                             PredictorPart.CFrame = CFrame.new(999,999,999)
                         end
                     else
                         if AimingSelected.Part then
-                            PredictorPart.CFrame = CFrame.new(AimingSelected.Part.Position)
+                            PredictorPart.CFrame = CFrame.new(Aiming.Selected.Part.Position)
                         else
                             PredictorPart.CFrame = CFrame.new(999,999,999)
                         end
