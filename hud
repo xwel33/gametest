@@ -186,15 +186,23 @@ do
     local TracerManagement = DrawingManagementBox:AddTab("Tracer")
     local DotManagement = DrawingManagementBox:AddTab("Dot")
     
-    local UseDot = false
-    local usedotonvelocity = false
-    local dotonpart = false
+    getgenv().UseDot = false
+    getgenv().usedotonvelocity = false
+    getgenv().dotonpart = false
+    getgenv().colordot = Color3.new(255, 0, 255)
     DotManagement:AddToggle("Enabledot", {
         Text = "Enable",
         Default = false,
         Tooltip = "Predicts players velocity",
         Callback = function(Value)
-            UseDot = Value
+            getgenv().UseDot = Value
+        end
+    }):AddColorPicker("Dotcolour", {
+        Text = "Colour",
+        Default = getgenv().colordot,
+        Tooltip = "The Color Of the Dot",
+        Callback = function(Value)
+            getgenv().colordot = Value
         end
     })
     
@@ -203,7 +211,7 @@ do
         Default = false,
         Tooltip = "Predicts players velocity",
         Callback = function(Value)
-            usedotonvelocity = Value
+            getgenv().usedotonvelocity = Value
         end
     })
     
@@ -212,7 +220,7 @@ do
         Default = false,
         Tooltip = "Predicts players velocity",
         Callback = function(Value)
-            dotonpart = Value
+            getgenv().dotonpart = Value
         end
     })
 
