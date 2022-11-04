@@ -19,7 +19,7 @@ local Teams = game:GetService("Teams")
 
 -- // Initialising the UI
 local Window = Library:CreateWindow({
-    Title = "Sanky Box",
+    Title = "Sanky Box ♠",
     Center = true,
     AutoShow = true
 })
@@ -68,14 +68,6 @@ do
         Tooltip = "Toggle the entirety of Aiming on and off",
         Callback = function(Value)
             AimingSettings.Enabled = Value
-        end
-    }):AddKeyPicker("SilentAimKey", {
-        Default = 'MB2',
-        SyncToggleState = false,
-        Text = "Silent Aim Keybind",
-        NoUI = false,
-        ChangedCallback = function(Key)
-            AimingSettings.Enabled = Key
         end
     })
     UniversalGroupBox:AddToggle("AimingVisibleCheck", {
