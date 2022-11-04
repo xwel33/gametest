@@ -184,46 +184,6 @@ do
     local DrawingManagementBox = AimingTab:AddLeftTabbox()
     local FOVManagement = DrawingManagementBox:AddTab("FOV")
     local TracerManagement = DrawingManagementBox:AddTab("Tracer")
-    local DotManagement = DrawingManagementBox:AddTab("Dot")
-    
-    getgenv().UseDot = false
-    getgenv().usedotonvelocity = false
-    getgenv().dotonpart = false
-    getgenv().colordot = Color3.new(231, 84, 128)
- 
-    DotManagement:AddToggle("Dotenabled", {
-        Text = "Enabled",
-        Default = getgenv().UseDot,
-        Tooltip = "Toggle the FOV Circle on and off",
-        Callback = function(Value)
-            getgenv().UseDot = Value
-        end
-    }):AddColorPicker("DotColour", {
-        Text = "Colour",
-        Default = getgenv().colordot,
-        Tooltip = "The colour of the Dot",
-        Callback = function(Value)
-            getgenv().colordot = Value
-        end
-    })
-    
-    DotManagement:AddToggle("Usedotvel", {
-        Text = "Velocity",
-        Default = false,
-        Tooltip = "Predicts players velocity",
-        Callback = function(Value)
-            getgenv().usedotonvelocity = Value
-        end
-    })
-    
-    DotManagement:AddToggle("usesonhitbox", {
-        Text = "Use Dot On Part",
-        Default = false,
-        Tooltip = "Predicts players velocity",
-        Callback = function(Value)
-            getgenv().dotonpart = Value
-        end
-    })
 
     -- //
     FOVManagement:AddToggle("AimingFOVEnabled", {
